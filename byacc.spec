@@ -3,12 +3,13 @@
 Summary: Berkeley Yacc, a parser generator
 Name: byacc
 Version: 1.9.%{byaccdate}
-Release: 6.1%{?dist}
+Release: 7%{?dist}
 License: Public Domain
 Group: Development/Tools
 URL: http://invisible-island.net/byacc/byacc.html
 Source: ftp://invisible-island.net/byacc/byacc-%{byaccdate}.tgz
 Patch1: skeleton.c.diff
+Patch2: byacc-stack.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -21,6 +22,7 @@ this package.
 %prep
 %setup -q -n byacc-%{byaccdate}
 %patch1 -p1
+%patch2 -p1
 
 %build
 %configure --disable-dependency-tracking
@@ -49,6 +51,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/byacc.1*
 
 %changelog
+* Tue Dec 13 2011 Petr Machata <pmachata@redhat.com> - 1.9.20070509-7
+- Add a patch to bump stack limit back to 10000
+- Resolves: #743343
+
 * Mon Nov 30 2009 Dennis Gregorovic <dgregor@redhat.com> - 1.9.20070509-6.1
 - Rebuilt for RHEL 6
 
