@@ -3,7 +3,7 @@
 Summary: Berkeley Yacc, a parser generator
 Name: byacc
 Version: 1.9.%{byaccdate}
-Release: 1%{?dist}
+Release: 3%{?dist}
 License: Public Domain
 Group: Development/Tools
 URL: http://invisible-island.net/byacc/byacc.html
@@ -55,6 +55,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/byacc.1*
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.9.20130304-3
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.9.20130304-2
+- Mass rebuild 2013-12-27
+
 * Wed Mar 20 2013 Petr Machata <pmachata@redhat.com> - 1.9.20130304-1
 - Rebase to 20130304
 
